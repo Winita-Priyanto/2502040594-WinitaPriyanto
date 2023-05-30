@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/detail', function () {
+    return view('detail');
+});
+
+Route::get('/home/{id}', [BooksController::class, 'index']);
+Route::get('/{id}/review/{idReview}', [ReviewsController::class, 'show']);
+Route::get('/detail/{id}', [BooksController::class, 'show']);
+
